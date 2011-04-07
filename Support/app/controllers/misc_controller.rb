@@ -33,6 +33,10 @@ class MiscController < ApplicationController
     end
   end
   
+  def gittower
+    run_detached("PATH=#{File.dirname(git.git)}:$PATH && gittower", "Tower")
+  end
+  
   protected
     def first_which(*args)
       args.map do |arg|
